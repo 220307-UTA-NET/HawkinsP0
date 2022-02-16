@@ -1,4 +1,5 @@
-﻿using RichardH_P0.DL;
+﻿using System;
+using RichardH_P0.DL;
 using RichardH_P0.BL;
 
 namespace RichardH_P0.App
@@ -7,8 +8,20 @@ namespace RichardH_P0.App
     {
         public static void Main()
         {
-            string connectionString = File.ReadAllText("C:/Revature/Connection Strings/P0-DB.txt");
-            IRepository repository = new SqlRepository(connectionString);
+            string? connectionString;
+            IRepository repository;
+
+            try
+            {
+                connectionString = System.IO.File.ReadAllText("./P0-DB.txt");
+                repository = new SqlRepository(connectionString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Conection unavailable: \n" + ex);
+                return;
+            }
+
             IO io = new(repository);
             int opt = -1;
             User CurrentUser = new();

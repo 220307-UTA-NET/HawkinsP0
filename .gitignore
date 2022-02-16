@@ -7,6 +7,7 @@
 
 #Connection String
 /ADO.NET/DBUI/CS.txt
+*.txt
 
 # User-specific files
 *.rsuser
@@ -14,6 +15,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
